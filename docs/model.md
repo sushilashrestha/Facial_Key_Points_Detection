@@ -1,4 +1,3 @@
-````markdown
 # Model Architecture
 
 The model used for facial keypoint detection is a modified VGG16 architecture, with the following adjustments:
@@ -15,12 +14,14 @@ The model's layers are frozen except for the final fully connected layers, allow
 ### Model Summary
 
 ```python
+import torch.nn as nn
+import torchvision.models as models
 
 model = models.vgg16(weights=models.VGG16_Weights.IMAGENET1K_V1)
 
 # Freeze all layers except for the classifier
-for layers in model.parameters():
-    layers.requires_grad = False
+for param in model.parameters():
+    param.requires_grad = False
 
 # Modify the classifier
 model.avgpool = nn.Sequential(
@@ -28,6 +29,7 @@ model.avgpool = nn.Sequential(
     nn.MaxPool2d(2),
     nn.Flatten()
 )
+
 model.classifier = nn.Sequential(
     nn.Linear(2048, 512),
     nn.ReLU(),
@@ -36,4 +38,3 @@ model.classifier = nn.Sequential(
     nn.Sigmoid()
 )
 ```
-````
