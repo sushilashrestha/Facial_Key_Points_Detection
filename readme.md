@@ -37,7 +37,13 @@ The project is divided into the following key components:
 ### Installation Steps
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/your-repo/facial-keypoint-detection.git
    cd facial-keypoint-detection
+   ```
+
+2. Install Required Dependencies:
+   ```bash
+   pip install -r requirements.txt
    ```
