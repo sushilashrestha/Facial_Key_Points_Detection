@@ -15,6 +15,7 @@ The model's layers are frozen except for the final fully connected layers, allow
 ### Model Summary
 
 ```python
+
 model = models.vgg16(weights=models.VGG16_Weights.IMAGENET1K_V1)
 
 # Freeze all layers except for the classifier
