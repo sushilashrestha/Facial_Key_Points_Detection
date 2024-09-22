@@ -9,7 +9,7 @@ from torchvision import transforms
 from torch.utils.data import Dataset
 
 class FaceKeyPointData(Dataset):
-    def __init__(self, csv_path='data\\test_frames_keypoints.csv', split='training', device=torch.device('cpu'), model_input_size=(224, 224)):
+    def __init__(self, csv_path='data\\training_frames_keypoints.csv', split='training', device=torch.device('cpu'), model_input_size=(224, 224)):
         super(FaceKeyPointData, self).__init__()
         self.csv_path = csv_path
         self.split = split

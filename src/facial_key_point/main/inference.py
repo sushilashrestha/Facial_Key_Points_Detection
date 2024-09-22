@@ -1,7 +1,7 @@
 from PIL import Image
 from matplotlib import pyplot as plt
 
-from src.facial_key_point.utils.facial_key_point_detection import FacialKeyPointDetection
+from src.facial_key_point.utils.facial_key_points_detection import FacialKeyPointDetection
 
 if __name__ == "__main__":
     image = Image.open('face.jpg').convert('RGB')
