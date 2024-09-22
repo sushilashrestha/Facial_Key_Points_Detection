@@ -10,5 +10,5 @@ if __name__ == "__main__":
 
     plt.figure()
     plt.imshow(image)
-    plt.scatterplot(kp[0], kp[1], s=4, c='r')
+    plt.scatter(kp[0], kp[1], s=4, c='r')
     plt.savefig('viz.png')

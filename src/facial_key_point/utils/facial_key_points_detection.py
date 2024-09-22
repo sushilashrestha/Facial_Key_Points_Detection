@@ -16,7 +16,7 @@ class FacialKeyPointDetection:
     def predict(self, image):
         img, img_disp = self.preprocess(image)
         kps = self.model(img[None]).flatten().detach().cpu()
-        kp_x, kp_y = self.postprocess(image, kps)
+        kp_x, kp_y = self.postprocess(img_disp, kps)
         return img_disp, (kp_x, kp_y)
     
     def preprocess(self, img):
@@ -27,7 +27,6 @@ class FacialKeyPointDetection:
         return img.to(self.device), img_disp
 
     def postprocess(self, img, kps):
-        img = np.asarray(img)
         height, width, _ = img.shape
         kp_x, kp_y = kps[:68] * width, kps[68:] * height
         return kp_x, kp_y
