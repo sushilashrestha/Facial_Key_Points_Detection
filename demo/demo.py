@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 from matplotlib import pyplot as plt
 from PIL import Image, ImageDraw
